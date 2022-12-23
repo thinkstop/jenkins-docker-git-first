@@ -1,1 +1,1 @@
-FROM cdelucca/mycentos:1.0
+FROM centos:centos7
