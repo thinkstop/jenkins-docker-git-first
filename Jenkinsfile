@@ -1,20 +1,21 @@
 pipeline {
-    agent any
+    agent { dockerfile true }
 
     stages {
         stage('Build') {
             steps {
-                echo 'Building...'
+                echo 'Building..'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing....'
+                sh 'pip freeze'
+                echo 'Testing..'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying.....'
+                echo 'Deploying..'
             }
         }
     }
