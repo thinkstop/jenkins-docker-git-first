@@ -1,1 +1,1 @@
-FROM centos:centos7
+FROM mcr.microsoft.com/windows:ltsc2019
