@@ -1,6 +1,6 @@
 String branchName = "main"
-String gitCredentials = "0be71c21-ec06-4eef-a1ba-bb804ef73342"
-String repoUrl = "https://github.com/thinkstop/jenkins-docker-git-first.git"
+String gitCredentials = "92a8aa18-0642-4ac8-a52d-cfe4834ee169"
+String repoUrl = "git@github.com:thinkstop/jenkins-docker-git-first.git"
 
 
 pipeline {
@@ -9,16 +9,13 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                echo 'cloning repo..'
-                echo branchName
-                echo repoUrl
-                echo 'Cloning files from (repo: "' + branchName + '")'
+                echo 'Creating work directory..'
                 powershell 'New-Item -name "build" -ItemType "directory" -Force'
             }
         }
         stage('Clone') {
             steps {
-                echo 'Cloning..'
+                echo 'Cloning files from (repo: "' + branchName + '")'
                 dir('build') {
                     git branch: branchName, url: repoUrl, credentialsId: gitCredentials
                 }
@@ -27,7 +24,7 @@ pipeline {
         }
         stage('Compress') {
             steps {
-                echo 'Showing directory..'
+                echo 'Compressing directory..'
                 powershell 'Get-ChildItem -Path build | Compress-Archive -DestinationPath repo_compressed.zip -Force'
             }
         }
