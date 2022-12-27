@@ -28,7 +28,7 @@ pipeline {
         stage('Compress') {
             steps {
                 echo 'Showing directory..'
-                powershell 'Get-ChildItem -Path $PSScriptRoot\build'
+                powershell 'Get-ChildItem -Path build'
             }
         }
     }
