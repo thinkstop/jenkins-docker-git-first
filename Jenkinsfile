@@ -3,8 +3,7 @@ String branchName = env.BRANCH_NAME
 String repoUrl = "https://github.com/thinkstop/jenkins-docker-git-first.git"
 
 
-pipeline {
-    agent { any }
+node {
 
     stages {
         stage('Clone') {
