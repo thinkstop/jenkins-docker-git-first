@@ -7,7 +7,7 @@ pipeline {
     agent any
         
     stages {
-        stage('Clone') {
+        stage('Setup') {
             steps {
                 echo 'cloning repo..'
                 echo branchName
@@ -16,19 +16,19 @@ pipeline {
                 powershell 'New-Item -name "build" -ItemType "directory" -Force'
             }
         }
-        stage('Build') {
+        stage('Clone') {
             steps {
-                echo 'Building..'
+                echo 'Cloning..'
                 dir('build') {
                     git branch: branchName, url: repoUrl, credentialsId: gitCredentials
                 }
                 powershell 'Get-Location'
             }
         }
-        stage('Show') {
+        stage('Compress') {
             steps {
                 echo 'Showing directory..'
-                powershell 'Get-ChildItem build'
+                powershell 'Get-ChildItem -Path $PSScriptRoot\build'
             }
         }
     }
