@@ -28,7 +28,7 @@ pipeline {
         stage('Compress') {
             steps {
                 echo 'Showing directory..'
-                powershell 'Get-ChildItem -Path build | Compress-Archive -DestinationPath repo_compressed.zip'
+                powershell 'Get-ChildItem -Path build | Compress-Archive -DestinationPath repo_compressed.zip -Force'
             }
         }
     }
