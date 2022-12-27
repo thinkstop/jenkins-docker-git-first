@@ -19,8 +19,10 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                git branch: branchName, url: repoUrl, credentialsId: gitCredentials
-                powershell 'Get-Location'
+                dir('build') {
+                    git branch: branchName, url: repoUrl, credentialsId: gitCredentials
+                    powershell 'Get-Location'
+                }
             }
         }
         stage('Show') {
