@@ -20,13 +20,13 @@ pipeline {
             steps {
                 echo 'Building..'
                 git branch: branchName, url: repoUrl, credentialsId: gitCredentials
-                powershell 'get-location'
+                powershell 'Get-Location'
             }
         }
         stage('Show') {
             steps {
                 echo 'Showing directory..'
-                powershell 'ls build'
+                powershell 'Get-ChildItem build'
             }
         }
     }
