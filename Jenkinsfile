@@ -13,7 +13,7 @@ pipeline {
                 echo branchName
                 echo repoUrl
                 echo 'Cloning files from (repo: "' + branchName + '")'
-                powershell 'mkdir build'
+                powershell 'New-Item build -Force'
             }
         }
         stage('Build') {
