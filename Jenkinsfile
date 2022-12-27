@@ -18,13 +18,12 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                git branch: branchName, url: repoUrl
+                git branch: branchName, url: repoUrl, credentialsId: gitCredentials
             }
         }
         stage('Show') {
             steps {
                 echo 'Showing directory..'
-                sh 'ls build'
             }
         }
     }
