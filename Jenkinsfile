@@ -13,6 +13,7 @@ pipeline {
                 echo branchName
                 echo repoUrl
                 echo 'Cloning files from (repo: "' + branchName + '")'
+                powershell 'mkdir build'
             }
         }
         stage('Build') {
@@ -24,6 +25,7 @@ pipeline {
         stage('Show') {
             steps {
                 echo 'Showing directory..'
+                powershell 'ls build'
             }
         }
     }
