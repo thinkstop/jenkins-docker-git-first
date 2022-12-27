@@ -12,7 +12,6 @@ pipeline {
                 echo 'cloning repo..'
                 echo branchName
                 echo repoUrl
-                sh 'mkdir build'
                 echo 'Cloning files from (repo: "' + branchName + '")'
             }
         }
