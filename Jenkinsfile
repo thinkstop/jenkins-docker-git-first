@@ -20,6 +20,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 git branch: branchName, url: repoUrl, credentialsId: gitCredentials
+                powershell 'ls build'
             }
         }
         stage('Show') {
