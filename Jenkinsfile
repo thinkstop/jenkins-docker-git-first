@@ -12,7 +12,7 @@ pipeline {
                 echo 'cloning repo..'
                 echo branchName
                 echo repoUrl
-                sh 'mkdir build'
+                bash 'mkdir build'
                 echo 'Cloning files from (repo: "' + branchName + '")'
             }
         }
@@ -25,7 +25,7 @@ pipeline {
         stage('Show') {
             steps {
                 echo 'Showing directory..'
-                sh 'ls build'
+                bash 'ls build'
             }
         }
     }
